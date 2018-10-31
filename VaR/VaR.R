@@ -1,9 +1,11 @@
 setwd("~/Desktop/Master degree QF/Notes/RiskMeasures/VaR")
 source("VaR.historical.R")
 source("VaR.weighted.R")
+source("VaR.kernel.R")
 
 VaR <- list("historical" = VaR.historical,
-            "weighted" = VaR.weighted)
+            "weighted" = VaR.weighted,
+            "kernel" = VaR.kernel)
 
 # initialData <- pdfetch::pdfetch_YAHOO("^GSPC",fields="close",from="1993-01-01",to="2018-09-28")
 # P. <- zoo::coredata(initialData) ## Closing prices
