@@ -1,3 +1,10 @@
+# alpha: risk level
+# data: data to compute VaR
+# lam: exponential weight factor of most recent data point
+#      (i.e. oldest data point gets weight lam^(lookback))
+# h: bandwidth of Kernel density function
+# lookback: lookback period for VaR time series
+
 VaR.weighted <- function(alpha, data, lam = 0.99, lookback = length(data)){
   n <- length(data)
   vk <- 1:(n - lookback + 1)
