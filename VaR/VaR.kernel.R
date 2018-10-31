@@ -1,3 +1,9 @@
+# alpha: risk level
+# data: data to compute VaR
+# Kernel: Kernel density function
+# h: bandwidth of Kernel density function
+# lookback: lookback period for VaR time series
+
 VaR.kernel <- function(alpha, data, Kernel, h = 0.01, lookback = length(data)){
   n <- length(data)
   vk <- 1:(n - lookback + 1); vk2 <- 1:lookback
