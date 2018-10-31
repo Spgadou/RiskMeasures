@@ -1,3 +1,7 @@
+# alpha: risk level
+# data: data to compute VaR
+# lookback: lookback period for VaR time series
+
 VaR.historical <- function(alpha, data, lookback = length(data)){
   n <- length(data)
   vk <- 1:(n - lookback + 1)
