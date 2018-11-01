@@ -23,6 +23,10 @@ VaR <- R6Class("VaR", list(
              y = element$value, type = "l", col = k)
       k <- k + 1
     }
+    if (length(self$Var) != 0)
+      legend("topleft", legend = names(self$Var),
+             col = 2:(length(self$Var) + 1), lty = rep(1, length(self$Var)), cex = 0.6,
+             bty = "n",  y.intersp = 0.5)
   },
   Delete = function(name){
     self$Val[[name]] <- NULL
@@ -59,4 +63,5 @@ x <- VaR$new(R., t.)
 x$historical(alpha = 0.99, lookback = 250)
 x$weighted(alpha = 0.99, lam = 0.97, lookback = 250)
 
-x$Plot()
+x$Plot(cex = 0.8)
+
