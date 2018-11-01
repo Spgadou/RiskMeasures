@@ -12,6 +12,7 @@ VaR <- R6Class("VaR", list(
     source("VaR.historical.R")
     source("VaR.weighted.R")
     source("VaR.kernel.R")
+    source("VaR.gaussian.R")
   },
   Plot = function(){
     k <- 2
@@ -51,17 +52,13 @@ VaR <- R6Class("VaR", list(
     Time <- c(self$t.[(lookback + 1):length(self$R.)], self$t.[length(self$R.)] + 1)
     self$Var[["kernel"]] <- data.frame("time" = Time,
                                        "value" = Value)
+  },
+  gaussian = function(...){
+    Value <- VaR.gaussian(data = self$R., ...)
+    lookback <- length(self$R.) - length(Value) + 1
+    Time <- c(self$t.[(lookback + 1):length(self$R.)], self$t.[length(self$R.)] + 1)
+    self$Var[["gaussian"]] <- data.frame("time" = Time,
+                                         "value" = Value)
   }
 ))
-
-initialData <- pdfetch::pdfetch_YAHOO("^GSPC",fields="close",from="1993-01-01",to="2018-09-28")
-P. <- zoo::coredata(initialData) ## Closing prices
-R. <- -diff(P.) ## Time index
-t. <- zoo::index(initialData)[-1] ## Relative returns (losses)
-
-x <- VaR$new(R., t.)
-x$historical(alpha = 0.99, lookback = 250)
-x$weighted(alpha = 0.99, lam = 0.97, lookback = 250)
-
-x$Plot()
 
