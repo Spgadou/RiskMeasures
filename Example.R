@@ -12,9 +12,11 @@ t. <- zoo::index(initialData)[-1] ## Relative returns (losses)
 x <- VaR$new(R., t.)
 
 ## Add types of VaR you want
-x$historical(alpha = 0.99, lookback = 250)
-x$weighted(alpha = 0.99, lam = 0.97, lookback = 250)
-x$gaussian(alpha = 0.99, lookback = 250)
+x$kernel(alpha = 0.99, h = 0.01, lookback = 250, Kernel = function(x){
+  (3/4) * (1 - x^2) * (x >= -1) * (x <= 1)
+})
+x$gaussian(alpha = 0.99, lam = 0.99, lookback = 250)
 
 ## Visualize the data + VaRs
 x$Plot()
+
