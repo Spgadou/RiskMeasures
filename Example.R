@@ -11,7 +11,7 @@ t. <- zoo::index(initialData)[-1] ## Relative returns (losses)
 ## Create object with underlying data
 x <- VaR$new(R., t.)
 
-## Add historical + weighted VaR to the object
+## Add types of VaR you want
 x$historical(alpha = 0.99, lookback = 250)
 x$weighted(alpha = 0.99, lam = 0.97, lookback = 250)
 x$gaussian(alpha = 0.99, lookback = 250)
