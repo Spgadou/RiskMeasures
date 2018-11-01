@@ -5,11 +5,9 @@
 VaR.historical <- function(alpha, data, lookback = length(data)){
   n <- length(data)
   vk <- 1:(n - lookback + 1)
-  Var <- sapply(vk, function(i){
+  sapply(vk, function(i){
     sort(data[i:(i + lookback - 1)])[ceiling(lookback * alpha)]
   })
-  names(Var) <- zoo::index(data[vk + lookback - 1])
-  Var
 }
 
 # initialData <- pdfetch::pdfetch_YAHOO("^GSPC",fields="close",from="1993-01-01",to="2018-09-28")

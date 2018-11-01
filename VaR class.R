@@ -63,5 +63,5 @@ x <- VaR$new(R., t.)
 x$historical(alpha = 0.99, lookback = 250)
 x$weighted(alpha = 0.99, lam = 0.97, lookback = 250)
 
-x$Plot(cex = 0.8)
+x$Plot()
 
