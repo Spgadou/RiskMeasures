@@ -1,6 +1,6 @@
 #### Working example ####
 setwd("~/Desktop/Master degree QF/Notes/RiskMeasures")
-source("VaR class.R")
+source("VaR.R")
 
 ## Load stock data
 initialData <- pdfetch::pdfetch_YAHOO("^GSPC",fields="close",from="1993-01-01",to="2018-09-28")

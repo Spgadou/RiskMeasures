@@ -1,6 +1,6 @@
 library(R6)
 
-VaR <- R6Class("VaR", list(
+VaR <- R6Class("VaR",list(
   Var = list(),
   R. = 0,
   t. = 0,
@@ -8,7 +8,7 @@ VaR <- R6Class("VaR", list(
     self$R. <- data
     self$t. <- timeIndex
     
-    setwd("~/Desktop/Master degree QF/Notes/RiskMeasures/VaR")
+    setwd("~/Desktop/Master degree QF/Notes/RiskMeasures/VaR functions")
     source("VaR.historical.R")
     source("VaR.weighted.R")
     source("VaR.kernel.R")
